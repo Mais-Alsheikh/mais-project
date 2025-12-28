@@ -9,7 +9,7 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
-{
+{//اضافة تعديل للتجربة على الجيت هاب
     /**
      * Display a listing of the resource.
      *

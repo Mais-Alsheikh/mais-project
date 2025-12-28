@@ -3,7 +3,7 @@
 @section('content')
 
 <h1 class="text-2xl font-bold mb-6">تعديل المستخدم</h1>
-
+{{-- اضافة تعديل للتجربة على الجيت هاب --}}
 @if ($errors->any())
     <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
         <ul class="list-disc pl-5">
