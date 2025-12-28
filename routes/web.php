@@ -93,6 +93,29 @@ Route::middleware(['auth', 'role:teacher'])->group(function () {
         ->name('lessons.create');
     Route::post('/teacher/courses/{course}/lessons', [LessonController::class, 'store'])
         ->name('lessons.store');
+
+    // أسئلة الدروس - إدارة الأسئلة من قِبل المعلم
+    Route::get('/teacher/questions', [\App\Http\Controllers\QuestionController::class, 'index'])
+        ->name('questions.index');
+
+    Route::get('/teacher/lessons/{lesson}/questions', [\App\Http\Controllers\QuestionController::class, 'lessonQuestions'])
+        ->name('questions.lesson.index');
+
+    Route::get('/teacher/lessons/{lesson}/questions/create', [\App\Http\Controllers\QuestionController::class, 'create'])
+        ->name('questions.create');
+
+    Route::post('/teacher/lessons/{lesson}/questions', [\App\Http\Controllers\QuestionController::class, 'store'])
+        ->name('questions.store');
+
+    Route::get('/teacher/lessons/{lesson}/questions/{question}/edit', [\App\Http\Controllers\QuestionController::class, 'edit'])
+        ->name('questions.edit');
+
+    Route::patch('/teacher/lessons/{lesson}/questions/{question}', [\App\Http\Controllers\QuestionController::class, 'update'])
+        ->name('questions.update');
+
+    Route::delete('/teacher/lessons/{lesson}/questions/{question}', [\App\Http\Controllers\QuestionController::class, 'destroy'])
+        ->name('questions.destroy');
+
 });
 
 /* Student */

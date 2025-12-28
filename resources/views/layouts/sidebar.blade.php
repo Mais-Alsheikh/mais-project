@@ -31,6 +31,12 @@
                     دوراتي
                 </a>
             </li>
+            <li>
+                <a href="{{ route('questions.index') }}"
+                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                    أسئلة الدروس
+                </a>
+            </li>
         @endrole
 
         @role('student')
