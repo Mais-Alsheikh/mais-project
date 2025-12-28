@@ -37,6 +37,12 @@
                     أسئلة الدروس
                 </a>
             </li>
+            <li>
+                <a href="{{ route('exams.index') }}"
+                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                    نماذج الامتحانات
+                </a>
+            </li>
         @endrole
 
         @role('student')

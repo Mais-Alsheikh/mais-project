@@ -116,6 +116,29 @@ Route::middleware(['auth', 'role:teacher'])->group(function () {
     Route::delete('/teacher/lessons/{lesson}/questions/{question}', [\App\Http\Controllers\QuestionController::class, 'destroy'])
         ->name('questions.destroy');
 
+    // نماذج الامتحانات من قِبل المعلم
+    Route::get('/teacher/exams', [\App\Http\Controllers\ExamController::class, 'index'])
+        ->name('exams.index');
+
+    Route::get('/teacher/exams/create', [\App\Http\Controllers\ExamController::class, 'create'])
+        ->name('exams.create');
+
+    Route::post('/teacher/exams', [\App\Http\Controllers\ExamController::class, 'store'])
+        ->name('exams.store');
+
+    Route::get('/teacher/exams/{exam}', [\App\Http\Controllers\ExamController::class, 'show'])
+        ->name('exams.show');
+
+    // Manage questions for an exam
+    Route::get('/teacher/exams/{exam}/questions', [\App\Http\Controllers\ExamController::class, 'manageQuestions'])
+        ->name('exams.questions.manage');
+
+    Route::patch('/teacher/exams/{exam}/questions', [\App\Http\Controllers\ExamController::class, 'updateQuestions'])
+        ->name('exams.questions.update');
+
+    Route::delete('/teacher/exams/{exam}', [\App\Http\Controllers\ExamController::class, 'destroy'])
+        ->name('exams.destroy');
+
 });
 
 /* Student */
