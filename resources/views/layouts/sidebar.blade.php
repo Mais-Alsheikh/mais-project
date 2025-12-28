@@ -58,6 +58,12 @@
                     دوراتي
                 </a>
             </li>
+            <li>
+                <a href="{{ route('student.exams.index') }}"
+                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                    نماذج الامتحانات
+                </a>
+            </li>
         @endrole
 
     </ul>

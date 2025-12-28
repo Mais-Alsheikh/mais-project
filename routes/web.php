@@ -165,6 +165,19 @@ Route::middleware(['auth', 'role:student'])->group(function () {
     return back()->with('success', 'تم التسجيل بالدورة بنجاح');
 })->name('courses.enroll');
 
+    // Student exams (take and view results)
+    Route::get('/student/exams', [\App\Http\Controllers\StudentExamController::class, 'index'])
+        ->name('student.exams.index');
+
+    Route::get('/student/exams/{exam}', [\App\Http\Controllers\StudentExamController::class, 'show'])
+        ->name('student.exams.show');
+
+    Route::post('/student/exams/{exam}/submit', [\App\Http\Controllers\StudentExamController::class, 'submit'])
+        ->name('student.exams.submit');
+
+    Route::get('/student/exams/{exam}/results/{result}', [\App\Http\Controllers\StudentExamController::class, 'result'])
+        ->name('student.exams.result');
+
 // صفحة دوراتي
     Route::get('/student/my-courses', function () {
         $courses = auth()->user()->courses;
