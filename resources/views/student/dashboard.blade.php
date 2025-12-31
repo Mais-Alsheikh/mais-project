@@ -2,9 +2,17 @@
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
-    <div class="mb-8">
-        <h1 class="text-4xl font-bold text-gray-800 mb-2">دوراتي التعليمية</h1>
-        <p class="text-gray-600">استعرض وتابع الدورات المسجلة</p>
+    <div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between">
+        <div>
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">دوراتي التعليمية</h1>
+            <p class="text-gray-600">استعرض وتابع الدورات المسجلة</p>
+        </div>
+        <div class="mt-4 md:mt-0">
+            <a href="{{ route('courses.index') }}" class="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-semibold shadow-lg">
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v4H3zM3 10h18v11H3z"/></svg>
+                تصفح الدورات المتاحة
+            </a>
+        </div>
     </div>
 
     @if(session('success'))

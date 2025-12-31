@@ -33,7 +33,11 @@ require __DIR__.'/auth.php';
 |-----------------------------------
 */
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $users = \App\Models\User::count();
+    $courses = \App\Models\Course::count();
+    $lessons = \App\Models\Lesson::count();
+    $exams = \App\Models\Exam::count();
+    return view('dashboard', compact('users','courses','lessons','exams'));
 })->middleware(['auth'])->name('dashboard');
 
 /*
@@ -203,4 +207,8 @@ Route::middleware(['auth','role:admin'])
     ->group(function () {
 
     Route::resource('/users',UserController::class);
+});
+
+Route::get('/', function () {
+    return view('frontend.home');
 });

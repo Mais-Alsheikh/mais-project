@@ -17,17 +17,21 @@
             المدرس: {{ $course->teacher->name }}
         </p>
 
-        @if(auth()->user()->courses->contains($course->id))
-            <button class="mt-4 bg-gray-300 text-gray-700 px-4 py-2 rounded cursor-not-allowed">
-                مسجل مسبقًا
-            </button>
-        @else
-            <form method="POST" action="{{ route('courses.enroll', $course->id) }}">
-                @csrf
-                <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
-                    تسجيل بالدورة
+        @if(auth()->user()->hasRole('student'))
+            @if(auth()->user()->courses->contains($course->id))
+                <button class="mt-4 bg-gray-300 text-gray-700 px-4 py-2 rounded cursor-not-allowed">
+                    مسجل مسبقًا
                 </button>
-            </form>
+            @else
+                <form method="POST" action="{{ route('courses.enroll', $course->id) }}">
+                    @csrf
+                    <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+                        تسجيل بالدورة
+                    </button>
+                </form>
+            @endif
+        @else
+            <div class="mt-4 text-sm text-gray-600">يمكن لحسابات الطلاب فقط التسجيل في الدورات</div>
         @endif
 
     </div>
