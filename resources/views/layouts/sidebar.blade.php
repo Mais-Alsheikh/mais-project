@@ -6,13 +6,13 @@
         @role('admin')
             <li>
                 <a href="{{ route('admin.dashboard') }}"
-                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                 class="block px-3 py-2 rounded hover:bg-indigo-500 {{ request()->routeIs('admin.dashboard') ? 'bg-indigo-500' : '' }}">
                     لوحة الإدارة
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.users.index') }}"
-                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                   class="block px-3 py-2 rounded hover:bg-indigo-500 {{ request()->routeIs('admin.users.index') ? 'bg-indigo-500' : '' }}">
                     إدارة المستخدمين
                 </a>
             </li>
@@ -21,25 +21,26 @@
         @role('teacher')
             <li>
                 <a href="{{ route('teacher.dashboard') }}"
-                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                   class="block px-3 py-2 rounded hover:bg-indigo-500 {{ request()->routeIs('teacher.dashboard') ? 'bg-indigo-500' : '' }}">
                     لوحة المعلم
                 </a>
             </li>
             <li>
-                <a href="{{ route('teacher.my-courses') }}"
-                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                 <a href="{{ route('teacher.my-courses') }}"
+                   class="block px-3 py-2 rounded hover:bg-indigo-500 {{ request()->routeIs('teacher.my-courses') ? 'bg-indigo-500' : '' }}">
                     دوراتي
-                </a>
+                </a> 
+                 
             </li>
             <li>
                 <a href="{{ route('questions.index') }}"
-                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                  class="block px-3 py-2 rounded hover:bg-indigo-500 {{ request()->routeIs('questions.index') ? 'bg-indigo-500' : '' }}">
                     أسئلة الدروس
                 </a>
             </li>
             <li>
                 <a href="{{ route('exams.index') }}"
-                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                    class="block px-3 py-2 rounded hover:bg-indigo-500 {{ request()->routeIs('exams.index') ? 'bg-indigo-500' : '' }}">
                     نماذج الامتحانات
                 </a>
             </li>
@@ -48,19 +49,25 @@
         @role('student')
             <li>
                 <a href="{{ route('student.dashboard') }}"
-                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                 class="block px-3 py-2 rounded hover:bg-indigo-500 {{ request()->routeIs('student.dashboard') ? 'bg-indigo-500' : '' }}">
                     لوحة الطالب
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{ route('student.my-courses') }}"
                    class="block px-3 py-2 rounded hover:bg-indigo-500">
                     دوراتي
                 </a>
-            </li>
+            </li> --}}
+            <li>
+    <a href="{{ route(name: 'student.my-courses') }}" 
+       class="block px-3 py-2 rounded hover:bg-indigo-500 {{ request()->routeIs('student.my-courses') ? 'bg-indigo-500' : '' }}">
+        دوراتي
+    </a>
+</li>
             <li>
                 <a href="{{ route('student.exams.index') }}"
-                   class="block px-3 py-2 rounded hover:bg-indigo-500">
+                   class="block px-3 py-2 rounded hover:bg-indigo-500 {{ request()->routeIs('student.exams.index') ? 'bg-indigo-500' : '' }}">
                     نماذج الامتحانات
                 </a>
             </li>

@@ -3,8 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>أكاديمية الشمس</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+    * {
+    font-family: 'Cairo', sans-serif;
+}
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+body {
+    font-family: 'Cairo', sans-serif;
+}
+    
+    </style>   
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 flex">
